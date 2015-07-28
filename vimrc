@@ -169,7 +169,7 @@ hi MBEVisibleNormal guifg=red
 filetype plugin indent on     " required!
 autocmd BufEnter * highlight  Index ctermfg=green
 autocmd BufLeave * silent! update
-autocmd BufWrite *  let t = getcurpos()|silent! %s/ \+$//|call setpos('.', t)
+"autocmd BufWrite *  let t = getcurpos()|silent! %s/ \+$//|call setpos('.', t)
 
 "
 "
@@ -236,4 +236,8 @@ let g:SimpleJsIndenter_BriefMode = 1
 "hi SpecialKey ctermfg=15 guifg=bg guibg=bg
 "隐藏^M"
 call matchadd("Ignore", "\r")
+
+noremap y "+y
+noremap p "+p
+
 

@@ -1159,5 +1159,6 @@ call s:Set("g:bufExplorerSplitRight", &splitright)  " Should vertical splits be 
 call s:Set("g:bufExplorerSplitVertSize", 0)        " Height for a vertical split. If <=0, default Vim size is used.
 call s:Set("g:bufExplorerSplitHorzSize", 0)        " Height for a horizontal split. If <=0, default Vim size is used.
 "1}}}
-
 " vim:ft=vim foldmethod=marker sw=4
+"
+
