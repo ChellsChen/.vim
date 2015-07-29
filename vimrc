@@ -1,20 +1,11 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-"加载第三方的插件
-"为了可以与im 并存. 要修改autoload/youcompleteme.vim
-"s:InvokeCompletion, s:SetCompleteFunc
-"让这两个函数直接退出
+
 let lst = split(globpath($HOME . "/.vim/bundle", '*/'), '\n')
 for d in lst
     execute "set rtp+=" . d
 endfor
-"set rtp+=$HOME/.vim/bundle/YouCompleteMe
-"set rtp+=$HOME/.vim/bundle/syntastic
-"set rtp+=$HOME/.vim/bundle/EasyMotion
-"set rtp+=$HOME/.vim/bundle/mark
-"set rtp+=$HOME/.vim/bundle/wind
-"set rtp+=$HOME/.vim/bundle/ctrlp.vim
 
 "set options{{{
 "=================================================================
@@ -83,7 +74,7 @@ set wildmenu
 "set wildignorecase
 set completeopt=menuone
 let ch_syntax_for_h=1
-set statusline=[%<%t]%0*%h%m%r%=BufNr:%n\ ft:%{&ft}%{&fileencoding}%0*\ %-14.(%c%V%)\ %l/%L
+set statusline=[%<%t]%0*%h%m%r%=BN:%n\ ft:%{&ft}\ %{&fileencoding}%0*\ %-14.(%c%V%)\ %l/%L
 "}}}
 "key map{{{
 map <F1> <nop>
@@ -108,7 +99,7 @@ map ; :
 vnoremap p "0p
 vnoremap <c-c>    "+y
 imap <C-Q> <C-x><C-k>
-vnoremap / ""y/<C-R>0<CR>
+
 map <c-n> :cn<cr>
 imap <c-n> <esc>:cn<cr>
 noremap [[ [[zz
@@ -126,47 +117,6 @@ let g:mwDefaultHighlightingPalette = 'extended'
 "用于从底端,忽略几个组
 "feng
 let g:IgnoreGrougeNum = 1
-"{{{ nerdtree
-let g:NERDTreeSortOrder=['\.vim$', '\.cpp$', '\.c$', '\.h$', '*','\/$']
-
-let NERDTreeIgnore=[
-            \'\.o$',
-            \'\.suo$',
-            \'\.vcproj$',
-            \'\.txt$',
-            \'tags$',
-            \'\.conf$',
-            \'\.bak$',
-            \'\.pyc$',
-            \'^[mM]akefile',
-            \'^__init__\.py$',
-            \'\.db$',
-            \'^autom4te\.cache$',
-            \'^PClint$',
-            \'\.a$',
-            \'\.in$',
-            \'\.log$',
-            \'\.ac$',
-            \'ViProject.AuVim',
-            \'\.wps$',
-            \'\.doc$',
-            \'\.et$',
-            \'missing$',
-            \'install-sh$',
-            \'depcomp$',
-            \'INSTALL$',
-            \'COPYING$',
-            \'configure$',
-            \'config.status$',
-            \'compile$',
-            \'aclocal.m4$',
-            \'AUTHORS$',
-            \'ChangeLog$',
-            \'README$',
-            \'stamp-h1$',
-            \'vipro$'
-            \]
-"}}}"
 
 "对于zsh的一些标记,conqueterm不能识别.下面的设置使其正常显示,但还有一些区别
 let g:ConqueTerm_TERM= 'xterm'
@@ -195,14 +145,7 @@ au BufNewFile,BufRead *.tex setf context
 "highlight Cursor guifg=white guibg=black
 "highlight iCursor guifg=white guibg=steelblue
 
-	
-"let g:winManagerAutoOpen=1
-"let g:winManagerWidth=30    " the width of the explorer areas.
-"
-"let g:winManagerWindowLayout='TagList|Explore,BufExplorer'
-let g:winManagerWindowLayout='TagList|NERDTree'
-"let g:winManagerWindowLayout='TagList,FileExplorer'
-nmap wm :WMToggle<cr>
+
 "
 let g:netrw_list_hide='^\.'
 
@@ -252,16 +195,17 @@ set efm=%Dmake\[%\\d%\\+\]:\ Entering\ directory\ '%f',
 let g:ycm_complete_in_strings = 0
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = $HOME . "/.vim/ycm_extra_conf.py"
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_key_invoke_completion = '<C-c>'
-"set imactivatekey=C-space
+set imactivatekey=C-space
 "now the youcompleteme is still weak for python
 let g:ycm_server_use_vim_stdout = 0
 let g:ycm_filetype_whitelist = { '*': 1}
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_echo_current_diagnostic = 1
+let g:ycm_extra_conf_vim_data = ['&filetype', 'g:frain_include_dirs']
 let g:ycm_filetype_blacklist = {
       \ 'tagbar'   : 1,
       \ 'qf'       : 1,
