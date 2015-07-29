@@ -40,7 +40,7 @@ set guicursor=i:ver13-blinkon0,n-v-c:block-blinkon0 "光标
 "set guifont=Monaco\ 10
 "set guifont=DejaVu\ Sans\ Mono\ 12
 "set guifont=Monaco\ Bold\ 12
-set guifont=Inconsolata\ Medium\ 13
+set guifont=Inconsolata\ Medium\ 15
 
 set guioptions-=T
 set guioptions-=m
@@ -77,10 +77,10 @@ set switchbuf=useopen
 set foldminlines=9
 set incsearch
 "set ignorecase
-set backupdir=~/.cache/backup
+"set backupdir=~/.cache/backup
 set wildmode=full
 set wildmenu
-set wildignorecase
+"set wildignorecase
 set completeopt=menuone
 let ch_syntax_for_h=1
 set statusline=[%<%t]%0*%h%m%r%=BufNr:%n\ ft:%{&ft}%{&fileencoding}%0*\ %-14.(%c%V%)\ %l/%L
@@ -226,7 +226,7 @@ hi MBEVisibleNormal guifg=red
 filetype plugin indent on     " required!
 autocmd BufEnter * highlight  Index ctermfg=green
 autocmd BufLeave * silent! update
-autocmd BufWrite *  let t = getcurpos()|silent! %s/ \+$//|call setpos('.', t)
+"autocmd BufWrite *  let t = getcurpos()|silent! %s/ \+$//|call setpos('.', t)
 
 "
 "
@@ -292,4 +292,19 @@ let g:SimpleJsIndenter_BriefMode = 1
 "hi SpecialKey ctermfg=15 guifg=bg guibg=bg
 "隐藏^M"
 call matchadd("Ignore", "\r")
+
+set imd
+au InsertEnter * se noimdisable
+au InsertLeave * se noimdisable
+au FocusGained * se imdisable
+
+
+
+
+
+
+
+
+
+
 
