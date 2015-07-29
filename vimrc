@@ -237,6 +237,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 "隐藏^M"
 call matchadd("Ignore", "\r")
 
+<<<<<<< HEAD
 set imd
 au InsertEnter * se noimdisable
 au InsertLeave * se noimdisable
@@ -250,5 +251,9 @@ au FocusGained * se imdisable
 
 
 
+=======
+noremap y "+y
+noremap p "+p
+>>>>>>> 7489421a390eacbf53911c2c50cea19f1df6efee
 
 
